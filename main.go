@@ -57,8 +57,6 @@ func healthcheck(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	
-	log.Print("SUCCESS: Connected to Mysql")
-
 	var status bool
 	
 	status = queryCheck(db)
@@ -80,6 +78,5 @@ func queryCheck(db *sql.DB) (bool) {
 		log.Print("ERROR:  Query failure: ", err)
 		return false
 	}
-	log.Print("SUCCESS: Query Successful: ", val)
     return true
 }
